@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manicure Nail</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #ffe6f0;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(90deg, #ff66b2, #ff99cc);
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      text-align: center;
+      margin: 15px 0;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #ff3399;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .services ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .services li {
+      background: #fff0f5;
+      margin: 10px 0;
+      padding: 15px 20px;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      font-size: 1.2em;
+    }
+
+    .contact p {
+      font-size: 1.1em;
+      margin-bottom: 10px;
+      color: #ff3399;
+      font-weight: bold;
+    }
+
+    .contact a {
+      display: inline-block;
+      background: #ff3399;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 25px;
+      margin: 10px;
+      border-radius: 12px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .contact a:hover {
+      background: #ff66b2;
+    }
+
+    .galeria h2 {
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 25px;
+      color: #ff3399;
+    }
+
+    /* Carrossel Styles */
+    .carousel-container {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .carousel-slide {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      flex-shrink: 0;
+      border-radius: 12px;
+      margin: 0 5px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .carousel-slide img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(255,51,153,0.7);
+      color: #fff;
+      border: none;
+      font-size: 2em;
+      padding: 10px 15px;
+      cursor: pointer;
+      border-radius: 50%;
+      z-index: 10;
+      transition: background 0.3s;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(255,102,178,0.9);
+    }
+
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      padding-top: 60px;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.9);
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      border-radius: 12px;
+      animation: zoom 0.3s;
+    }
+
+    @keyframes zoom {
+      from {transform: scale(0.7);}
+      to {transform: scale(1);}
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #ff66b2;
+    }
+
+    footer {
+      background: #ff66b2;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      box-shadow: 0 -4px 8px rgba(0,0,0,0.2);
+      font-size: 1em;
+    }
+
+    footer svg {
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Manicure Nail</h1>
+  </header>
+
+  <nav>
+    <a href="#services">Serviços</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#contact">Contato</a>
+  </nav>
+
+  <section id="services" class="services">
+    <h2>Serviços</h2>
+    <ul>
+      <li>Manicure e Pedicure</li>
+      <li>Alongamento de Fibra</li>
+      <li>Alongamento de Acrigel</li>
+      <li>Molde F1</li>
+      <li>Esmaltação de Gel</li>
+      <li>SPA DO PÉ</li>
+    </ul>
+  </section>
+
+  <section id="galeria" class="galeria">
+    <h2>Galeria de Trabalhos</h2>
+    <div class="carousel-container">
+      <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+      <div class="carousel-slide" id="carouselSlide">
+        <img src="https://i.postimg.cc/QdCc7jm1/IMG-20260114-WA0163.jpg" alt="Trabalho 1" onclick="openModal(this.src)">
+        <img src="https://i.postimg.cc/D0Yw33GK/IMG_20260114_WA0162.jpg" alt="Trabalho 2" onclick="openModal(this.src)">
+        <img src="https://i.postimg.cc/j2kSYYfK/IMG_20260114_WA0160.jpg" alt="Trabalho 3" onclick="openModal(this.src)">
+        <img src="https://i.postimg.cc/rsYw2242/IMG_20260114-WA0159.jpg" alt="Trabalho 4" onclick="openModal(this.src)">
+        <img src="https://i.postimg.cc/PJq575CH/IMG_20260114-WA0158.jpg" alt="Trabalho 5" onclick="openModal(this.src)">
+        <img src="https://i.postimg.cc/Y0SCPChP/IMG_20260114-WA0156.jpg" alt="Trabalho 6" onclick="openModal(this.src)">
+      </div>
+      <button class="next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modal-img">
+  </div>
+
+  <section id="contact" class="contact">
+    <h2>Contato</h2>
+    <p><strong>Endereço:</strong> Rua Figueiredo de Magalhães 219, Sobreloja 210, Copacabana</p>
+    <a href="https://wa.me/5521998218047" target="_blank">Agendar via WhatsApp</a>
+    <a href="https://www.instagram.com/pathyrodriques_esteticista_" target="_blank">Instagram</a>
+  </section>
+
+  <footer>
+    <!-- Flores topo rodapé -->
+    <div style="text-align:center; margin-bottom:10px;">
+      <svg width="30" height="30" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin:0 5px;">
+        <path d="M32 2C34.76 14 48 18 48 32C48 46 34.76 50 32 62C29.24 50 16 46 16 32C16 18 29.24 14 32 2Z" fill="#FF66B2"/>
+      </svg>
+      <svg width="30" height="30" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin:0 5px;">
+        <path d="M32 2C34.76 14 48 18 48 32C48 46 34.76 50 32 62C29.24 50 16 46 16 32C16 18 29.24 14 32 2Z" fill="#FF99CC"/>
+      </svg>
+      <svg width="30" height="30" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin:0 5px;">
+        <path d="M32 2C34.76 14 48 18 48 32C48 46 34.76 50 32 62C29.24 50 16 46 16 32C16 18 29.24 14 32 2Z" fill="#FF66B2"/>
+      </svg>
+    </div>
+    &copy; 2026 Manicure Nail | Todos os direitos reservados <br>
+    Rua Figueiredo de Magalhães 219, Sobreloja 210, Copacabana
+  </footer>
+
+  <script>
+    const carouselSlide = document.getElementById('carouselSlide');
+    const slides = carouselSlide.querySelectorAll('img');
+    let counter = 0;
+
+    function moveSlide(direction) {
+      counter += direction;
+      if(counter < 0) counter = slides.length - 1;
+      if(counter >= slides.length) counter = 0;
+      const slideWidth = slides[0].clientWidth + 10;
+      carouselSlide.style.transform = `translateX(${-slideWidth * counter}px)`;
+    }
+
+    function openModal(src) {
+      document.getElementById('modal').style.display = "block";
+      document.getElementById('modal-img').src = src;
+    }
+
+    function closeModal() {
+      document.getElementById('modal').style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
